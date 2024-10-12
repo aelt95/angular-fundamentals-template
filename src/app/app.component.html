@@ -1,23 +1,34 @@
-<app-header></app-header>
+<app-header>
+  <p>Anthony Lopez</p>
+  <app-button buttonText="logout"></app-button>
+</app-header>
 <div class="app-root">
   <!-- Search component -->
-  <!--<app-search></app-search>-->
+  <!-- <app-search></app-search> -->
 
   <!-- Info component -->
-  <!--<app-info></app-info>-->
+  <app-info><app-button buttonText="add new course"></app-button></app-info>
 
   <!-- Course Card component -->
-  <!--<app-course-card></app-course-card>-->
+  <app-course-card>
+    <app-button iconName="trash-can"></app-button>
+    <app-button iconName="pencil"></app-button>
+  </app-course-card>
 
   <!-- Login Form component -->
   <!--<app-login-form></app-login-form>-->
 
   <!-- Login Form component -->
-  <!--<app-registration-form></app-registration-form>-->
+  <!-- <app-registration-form></app-registration-form> -->
 
   <!-- Login Form component -->
-  <!--<app-course-form></app-course-form>-->
+  <!-- <app-course-form></app-course-form> -->
 
   <!-- Modal component -->
-  <!-- <app-modal [message]="'Message'" [title]="'Title'" [okButtonText]="'Ok'" [cancelButtonText]="'Cancel'"></app-modal> -->
+  <!-- <app-modal
+    [message]="'Message'"
+    [title]="'Title'"
+    [okButtonText]="'Ok'"
+    [cancelButtonText]="'Cancel'"
+  ></app-modal> -->
 </div>
