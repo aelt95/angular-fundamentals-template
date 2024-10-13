@@ -1,23 +1,23 @@
 <!-- Replace ::text:: with your code -->
 
-<div class="title">{{ title }}</div>
+<div class="title">{{ getTitle() }}</div>
 <div class="course-info">
-  <div class="course-info__description">{{ description }}:</div>
+  <div class="course-info__description">{{ getDescription() }}:</div>
   <div class="course-info__info">
     <div>
-      <b>ID: </b><span class="course-info__info-id">{{ id }}</span>
+      <b>ID: </b><span class="course-info__info-id">{{ getId() }}</span>
     </div>
     <div>
       <b>Duration: </b
-      ><span class="course-info__info-duration">{{ duration }}</span>
+      ><span class="course-info__info-duration">{{ getDuration() }}</span>
     </div>
     <div>
       <b>Created: </b
-      ><span class="course-info__info-date">{{ creationDate }}</span>
+      ><span class="course-info__info-date">{{ getCreationDate() }}</span>
     </div>
     <div>
       <b>Authors: </b
-      ><span class="course-info__info-authors">{{ authors }}</span>
+      ><span class="course-info__info-authors">{{ getAuthors() }}</span>
     </div>
   </div>
 </div>

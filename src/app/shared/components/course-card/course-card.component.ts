@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter, Inject } from "@angular/core";
-import { CoursesService } from "@app/services/courses.service";
 
 @Component({
   selector: "app-course-card",
@@ -13,6 +12,7 @@ export class CourseCardComponent {
   @Input() duration: number = +"";
   @Input() authors: string[] = [];
   @Input() allAuthors: any[] = [];
+  @Input() courseId: string = "";
   authorsName = "";
 
   @Input() editable = false;
@@ -27,6 +27,7 @@ export class CourseCardComponent {
       creationDate: this.creationDate,
       duration: this.duration,
       authors: this.authorsName,
+      id: this.courseId,
     });
   }
   getAuthorNames(authorList: string[]) {

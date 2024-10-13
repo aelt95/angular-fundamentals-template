@@ -14,4 +14,25 @@ export class CourseInfoComponent {
   duration!: number;
   creationDate!: Date;
   authors!: string[];
+  ngOnInit() {
+    console.log(this.course);
+  }
+  getTitle() {
+    return (this.title = this.course.title);
+  }
+  getDescription() {
+    return (this.description = this.course.description);
+  }
+  getId() {
+    return (this.id = this.course.id);
+  }
+  getDuration() {
+    return (this.duration = this.course.duration);
+  }
+  getCreationDate() {
+    return (this.creationDate = this.course.creationDate);
+  }
+  getAuthors() {
+    return (this.authors = this.course.authors);
+  }
 }

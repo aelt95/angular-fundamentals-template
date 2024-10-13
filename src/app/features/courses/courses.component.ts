@@ -10,6 +10,8 @@ export class CoursesComponent {
   courses: any = [];
   allAuthors: any = [];
   editable = "true";
+  selectedCourse: any = null;
+
   constructor(@Inject(CoursesService) private courseService: CoursesService) {}
   ngOnInit() {
     this.loadCourseTitlesAndAuthors();
@@ -25,5 +27,9 @@ export class CoursesComponent {
       )
       .map((author: any) => author?.name)
       .join(", ");
+  }
+  onShowCourse(course: any) {
+    this.selectedCourse = course;
+    console.log(this.selectedCourse);
   }
 }

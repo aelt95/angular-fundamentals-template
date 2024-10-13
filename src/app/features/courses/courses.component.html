@@ -1,7 +1,9 @@
-<div>
-  <app-courses-list
-    [courses]="courses"
-    [allAuthors]="allAuthors"
-    [editable]="true"
-  ></app-courses-list>
-</div>
+<app-courses-list
+  [courses]="courses"
+  [allAuthors]="allAuthors"
+  [editable]="true"
+  (showCourse)="onShowCourse($event)"
+></app-courses-list>
+<app-course-info [course]="selectedCourse"
+  ><app-button buttonText="back"></app-button
+></app-course-info>

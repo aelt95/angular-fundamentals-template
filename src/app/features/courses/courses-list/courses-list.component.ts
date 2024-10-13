@@ -8,4 +8,9 @@ export class CoursesListComponent {
   @Input() courses: any = [];
   @Input() allAuthors: any = [];
   @Input() editable = false;
+  @Output() showCourse = new EventEmitter();
+
+  onShowCourse(course: any) {
+    this.showCourse.emit(course);
+  }
 }
