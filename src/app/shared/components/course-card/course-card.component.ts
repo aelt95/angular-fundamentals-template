@@ -7,35 +7,36 @@ import { CoursesService } from "@app/services/courses.service";
   styleUrls: ["./course-card.component.scss"],
 })
 export class CourseCardComponent {
-  courses: any = [];
-  allAuthors: any = [];
-  constructor(@Inject(CoursesService) private courseService: CoursesService) {}
-  ngOnInit() {
-    this.loadCourseTitlesAndAuthors();
-  }
-
-  loadCourseTitlesAndAuthors() {
-    this.courses = this.courseService.getAll().courses;
-    this.allAuthors = this.courseService.getAll().authors;
-  }
-  getAuthorNames(prop: any) {
-    // Assuming course.authors is an array of author IDs
-    return prop
-      .map((authorId: any) =>
-        this.allAuthors.find((author: any) => author.id === authorId)
-      )
-      .map((author: any) => author?.name) // Use optional chaining
-      .join(", "); // Join names with commas
-  }
-
-  title: string = "";
-  description: string = "";
-  creationDate!: Date;
-  duration: number = +"";
-  authors: string[] = [];
+  @Input() title: string = "";
+  @Input() description: string = "";
+  @Input() creationDate!: Date;
+  @Input() duration: number = +"";
+  @Input() authors: string[] = [];
+  @Input() allAuthors: any[] = [];
+  authorsName = "";
 
   @Input() editable = false;
   @Output() showCourse = new EventEmitter();
   @Output() editCourse = new EventEmitter();
   @Output() deleteCourse = new EventEmitter();
+
+  onShowCourse() {
+    this.showCourse.emit({
+      title: this.title,
+      description: this.description,
+      creationDate: this.creationDate,
+      duration: this.duration,
+      authors: this.authorsName,
+    });
+  }
+  getAuthorNames(authorList: string[]) {
+    this.authorsName = authorList
+      .map((authorId: string) =>
+        this.allAuthors.find((author: any) => author.id === authorId)
+      )
+      .map((author: any) => author?.name)
+      .filter((name: string | undefined) => name !== undefined)
+      .join(", ");
+    return this.authorsName;
+  }
 }
