@@ -14,9 +14,7 @@ export class CourseInfoComponent {
   duration!: number;
   creationDate!: Date;
   authors!: string[];
-  ngOnInit() {
-    console.log(this.course);
-  }
+
   getTitle() {
     return (this.title = this.course.title);
   }
