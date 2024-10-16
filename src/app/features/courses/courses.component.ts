@@ -30,6 +30,17 @@ export class CoursesComponent {
   }
   onShowCourse(course: any) {
     this.selectedCourse = course;
-    console.log(this.selectedCourse);
+  }
+  onSearch(searchText: string) {
+    const lowerCaseSearchText = searchText.toLowerCase();
+    this.courses = this.courseService.getAll().courses.filter((course: any) => {
+      const authorNames = this.getAuthorNames(course.authors).toLowerCase();
+      return (
+        course.title.toLowerCase().includes(lowerCaseSearchText) ||
+        course.id.toLowerCase().includes(lowerCaseSearchText) ||
+        course.description.toLowerCase().includes(lowerCaseSearchText) ||
+        authorNames.includes(lowerCaseSearchText)
+      );
+    });
   }
 }
