@@ -23,7 +23,10 @@ export class CourseFormComponent {
       Validators.required,
       Validators.minLength(2),
     ]),
-    author: new FormControl("", [Validators.minLength(2)]),
+    author: new FormControl("", [
+      Validators.minLength(2),
+      Validators.pattern("^[A-Za-z\\s]+$"),
+    ]),
     duration: new FormControl("", [Validators.required, Validators.min(0)]),
   });
   authors: string[] = [];
