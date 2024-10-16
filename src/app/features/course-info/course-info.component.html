@@ -8,11 +8,15 @@
       </div>
       <div>
         <b>Duration: </b
-        ><span class="course-info__info-duration">{{ getDuration() }}</span>
+        ><span class="course-info__info-duration">{{
+          getDuration() | duration
+        }}</span>
       </div>
       <div>
         <b>Created: </b
-        ><span class="course-info__info-date">{{ getCreationDate() }}</span>
+        ><span class="course-info__info-date">{{
+          getCreationDate() | customDate
+        }}</span>
       </div>
       <div>
         <b>Authors: </b
